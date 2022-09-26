@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Failures", "Failures\Failures.csproj", "{6959234B-7338-4E30-8543-7AEBAD4D2988}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Money", "Money\Money.csproj", "{14A4E7A9-DBF3-433C-837A-6A5B78A86915}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syntax", "Syntax\Syntax.csproj", "{02F3CF59-9E03-450E-8612-F3F7CE774FA4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6959234B-7338-4E30-8543-7AEBAD4D2988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6959234B-7338-4E30-8543-7AEBAD4D2988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6959234B-7338-4E30-8543-7AEBAD4D2988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6959234B-7338-4E30-8543-7AEBAD4D2988}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14A4E7A9-DBF3-433C-837A-6A5B78A86915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14A4E7A9-DBF3-433C-837A-6A5B78A86915}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14A4E7A9-DBF3-433C-837A-6A5B78A86915}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14A4E7A9-DBF3-433C-837A-6A5B78A86915}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02F3CF59-9E03-450E-8612-F3F7CE774FA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02F3CF59-9E03-450E-8612-F3F7CE774FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02F3CF59-9E03-450E-8612-F3F7CE774FA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02F3CF59-9E03-450E-8612-F3F7CE774FA4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27BBBD5C-3B1A-4FB9-A2F3-9FF2FEA15FD3}
+	EndGlobalSection
+EndGlobal

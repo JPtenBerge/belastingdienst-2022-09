@@ -1,0 +1,14 @@
+[DataTestMethod]
+[DynamicData(nameof(GetGamesData), DynamicDataSourceType.Method)]
+public void DynamicData_Games(int pins, int rolls, int score)
+{
+  RollBall(pins, rolls);
+  Assert.AreEqual(score, _game.GetScore());
+}
+
+public static IEnumerable<object[]> GetGamesData()
+{
+  yield return new object[] { 0, 20, 0 };
+  yield return new object[] { 1, 20, 20 };
+  yield return new object[] { 10, 12, 300 };
+}

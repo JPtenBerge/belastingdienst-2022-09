@@ -1,0 +1,15 @@
+[TestMethod]
+public void Should_Call_PerformOperation_When_Invoking_Execute()
+{
+  var mocker = new MockRepository();
+  var mockOperation = mocker.StrictMock<IOperation>();
+  using (mocker.Record())
+  {
+    Expect.Call(mockOperation.PerformOperation(8, 7)).Return(15);
+  }
+  using (mocker.Playback())
+  {
+    Calculator calc = new Calculator(mockOperation);
+    Assert.AreEqual(15, calc.Execute(8, 7));
+  }
+}

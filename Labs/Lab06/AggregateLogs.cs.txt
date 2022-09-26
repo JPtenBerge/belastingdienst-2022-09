@@ -1,0 +1,14 @@
+[TestMethod]
+public void AggregateLogs_Past3Days_ReturnsAllLinesFromPast3DaysAndToday()
+{
+  // Arrange
+  var sut = new LogAggregator();
+
+  // Act
+  var result = sut.AggregateLogs(@"C:\SomeLogDir", daysInPast: 3);
+
+  // Assert
+  Assert.AreEqual(4, result.Length, "Number of aggregated lines incorrect.");
+  Assert.AreEqual("ThreeDaysAgoFirstLine", result[0], "First line incorrect.");
+  Assert.AreEqual("TodayLastLine", result[3], "Last line incorrect.");
+}

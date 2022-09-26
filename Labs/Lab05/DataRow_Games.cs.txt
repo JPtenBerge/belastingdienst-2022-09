@@ -1,0 +1,9 @@
+[DataTestMethod]
+[DataRow(0,20,0)]
+[DataRow(1,20,20)]
+[DataRow(10,12,300)]
+public void ParameterizedGames(int pins, int rolls, int score)
+{
+  RollBall(pins, rolls);
+  Assert.AreEqual(score, _game.GetScore());
+}

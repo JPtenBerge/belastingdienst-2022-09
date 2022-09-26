@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="VersionManager.UnitTests.StaticTests.GetVersion_5_1_Expect_WindowsXP" /><Add Test="VersionManager.UnitTests.StaticTests.GetVersion_5_2_Expect_WindowsXP64Server2003" /><Add Test="VersionManager.UnitTests.StaticTests.GetVersion_6_0_Expect_WindowsVistaServer2008" /></Playlist>

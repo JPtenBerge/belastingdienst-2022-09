@@ -1,0 +1,7 @@
+[TestMethod()]
+public void GetVersion_5_1_Expect_WindowsXP()
+{
+  Accentient.VersionManager vm = new Accentient.VersionManager();
+  Assert.AreEqual("Windows XP",vm.GetVersionName(5, 1));
+}
+

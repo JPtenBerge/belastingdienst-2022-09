@@ -1,0 +1,38 @@
+using System;
+using System.Reflection;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using CoolCalc.Lib;
+
+namespace CoolCalcTests
+{
+  [TestClass]
+  public class IntegrationTests
+  {
+    [TestMethod]
+    public void IntegrationTest()
+    {
+      Add target = new Add();
+
+      var arg1 = 2;
+      var arg2 = 3;
+      string symbol = "+";
+      double expected = 5;
+      double actual;
+
+      var lib = Assembly.LoadFrom("CoolCalc.Lib.dll");
+      foreach (var type in lib.GetTypes())
+      {
+        if (type.GetInterface("IOperation") != null)
+        {
+          var op = (IOperation)Activator.CreateInstance(type);
+          if (op.Symbol == symbol)
+          {
+            var coolCalc = new Calculator(op);
+            actual = coolCalc.Execute(arg1, arg2);
+            Assert.AreEqual(expected, actual);
+          }
+        }
+      }
+    }
+  }
+}

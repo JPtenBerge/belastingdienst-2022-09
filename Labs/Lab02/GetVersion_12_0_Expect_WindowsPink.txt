@@ -1,0 +1,8 @@
+[TestCategory("Friendly"), TestCategory("Client"), TestCategory("Static")]
+[TestProperty("Flakiness", "High")]
+[TestMethod()]
+public void GetVersion_12_0_Expect_WindowsPink()
+{
+  Accentient.VersionManager vm = new Accentient.VersionManager();
+  Assert.AreEqual("Windows Pink", vm.GetVersionName(12, 0));
+}

@@ -1,0 +1,67 @@
+using System.Diagnostics;
+
+namespace Accentient
+{
+  public class VersionManager
+  {
+    public string GetVersion()
+    {
+      FileVersionInfo info =
+        FileVersionInfo.GetVersionInfo(@"C:\Windows\System32\User32.dll");
+      string[] versions = info.ProductVersion.Split('.');
+      return string.Format("{0}.{1}", versions[0], versions[1]);
+    }
+    public string GetVersionName(int major, int minor)
+    {
+      // See http://bit.ly/YITwl6 for more information
+
+      string version = "";
+      switch (major)
+      {
+        case 5:
+          if (minor == 0)
+            version = "Windows 2000";
+          else if (minor == 1)
+          {
+            version = "Windows XP";
+            System.Threading.Thread.Sleep(1000);
+          }
+          else
+          {
+            version = "Windows XP-64/Server 2003";
+            System.Threading.Thread.Sleep(1000);
+          }
+          break;
+        case 6:
+          if (minor == 0)
+            version = "Windows Vista/Server 2008";
+          else if (minor == 1)
+            version = "Windows 7/Server 2008 R2";
+          else if (minor == 2)
+            version = "Windows 8/Server 2012";
+          else
+            version = "Windows 8.1/Server 2012 R2";
+          break;
+        case 10:
+          version = "Windows 10/Server 2016/Server 2019";
+          break;
+        case 12:
+          version = "Windows 12";
+          break;
+        default:
+          break;
+      }
+      return version;
+    }
+
+    public string GetVersionName()
+    {
+      FileVersionInfo info =
+        FileVersionInfo.GetVersionInfo(@"C:\Windows\System32\User32.dll");
+      string[] versions = info.ProductVersion.Split('.');
+      int major = int.Parse(versions[0]);
+      int minor = int.Parse(versions[1]);
+      return GetVersionName(major, minor);
+    }
+  }
+}

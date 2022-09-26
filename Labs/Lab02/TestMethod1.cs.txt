@@ -1,0 +1,8 @@
+[TestMethod]
+public void TestMethod1()
+{
+  Accentient.VersionManager vm = new Accentient.VersionManager();
+  string expected = "";
+  string actual = vm.GetVersion();
+  Assert.AreEqual(expected,actual);
+}

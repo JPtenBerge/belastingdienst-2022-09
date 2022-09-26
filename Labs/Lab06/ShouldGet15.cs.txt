@@ -1,0 +1,6 @@
+[TestMethod]
+public void Should_get_15_when_adding_7_and_8()
+{
+  Calculator calc = new Calculator(new Add());
+  Assert.AreEqual(15, calc.Execute(7, 8));
+}

@@ -1,0 +1,15 @@
+using System.Diagnostics; 
+
+namespace Accentient
+{
+  public class VersionManager
+  {
+    public string GetVersion()
+    {
+      FileVersionInfo info =
+        FileVersionInfo.GetVersionInfo(@"C:\Windows\System32\User32.dll");
+      string[] versions = info.ProductVersion.Split('.');
+      return string.Format("{0}.{1}", versions[0], versions[1]);
+    }
+  }
+}

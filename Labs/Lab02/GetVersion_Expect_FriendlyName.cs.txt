@@ -1,0 +1,7 @@
+[TestMethod()]
+public void GetVersion_Expect_FriendlyName()
+{
+  Accentient.VersionManager vm = new Accentient.VersionManager();
+  string actual = vm.GetVersionName();
+  Assert.AreEqual("Windows 10/Server 2016/Server 2019", actual);
+}

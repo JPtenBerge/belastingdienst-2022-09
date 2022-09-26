@@ -1,0 +1,6 @@
+[TestMethod()]
+public void GetVersion_5_2_Expect_WindowsXP64Server2003()
+{
+  Accentient.VersionManager vm = new Accentient.VersionManager();
+  Assert.AreEqual("Windows XP-64/Server 2003",vm.GetVersionName(5, 2));
+}

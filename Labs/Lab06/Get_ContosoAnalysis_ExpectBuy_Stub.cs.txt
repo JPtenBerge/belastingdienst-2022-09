@@ -1,0 +1,19 @@
+[TestMethod]
+public void Get_ContosoAnalysis_ExpectBuy_Stub()
+{
+  // Arrange
+  IStockFeed stockFeed = new Fakes.StubIStockFeed()
+  {
+    GetSharePriceString = (symbol) => { return 8.10M; }
+  };
+  var stockAnalyzer = new StockAnalyzer(stockFeed);
+
+  // Act
+  var result = stockAnalyzer.GetStockAnalysis("CTSO");
+
+  // Assert
+  if (result != Analysis.Buy)
+  {
+    Assert.Fail(string.Format("Expected Buy, but actual was {0}", result.ToString()));
+  }
+}

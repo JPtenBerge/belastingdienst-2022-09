@@ -1,0 +1,6 @@
+[TestMethod()]
+public void GetVersion_6_0_Expect_WindowsVistaServer2008()
+{
+  Accentient.VersionManager vm = new Accentient.VersionManager();
+  Assert.AreEqual("Windows Vista/Server 2008",vm.GetVersionName(6, 0));
+}
