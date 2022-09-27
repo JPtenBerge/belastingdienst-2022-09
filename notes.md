@@ -136,3 +136,30 @@ Tool: Stryker. Vernoemd naar William Stryker van X-Men
 Repeat.
 
 "technical debt"
+
+## Wat test je?
+
+- Happy path
+  - semi-happy path
+  - en verwanten
+- Sad path depressive path highway to hell
+- Edge cases
+- Verwachte problemen
+
+
+- Onverwachte problemen
+  - OutOfMemoryException
+
+```sh
+Right BICEP
+      e
+      
+      C
+      O
+      R
+      R
+      E
+      C
+      T
+```
+
