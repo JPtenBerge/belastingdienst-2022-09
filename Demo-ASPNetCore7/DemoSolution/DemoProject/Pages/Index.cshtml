@@ -26,23 +26,27 @@
 }
 else
 {
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Naam</th>
-            <th>Leeftijd</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var person in Model.Persons)
-        {
+    <form method="post">
+        <table>
+            <thead>
             <tr>
-                <td>@person.Id</td>
-                <td>@person.Name</td>
-                <td>@person.Age</td>
+                <th>ID</th>
+                <th>Naam</th>
+                <th>Leeftijd</th>
             </tr>
-        }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            @foreach (var person in Model.Persons)
+            {
+                <tr>
+                    <td>@person.Id</td>
+                    <td>@person.Name</td>
+                    <td>@person.Age</td>
+                    <td><input type="checkbox" name="selectedPersons" value="@person.Id"></td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        <button>Submit</button>
+    </form>
 }

@@ -11,6 +11,8 @@ public class Index : PageModel
 
     public IEnumerable<PersonEntity>? Persons { get; set; }
     private IPersonRepository _personRepository;
+
+    [BindProperty] public List<int> SelectedPersons { get; set; }
     
     public Index(IPersonRepository personRepository)
     {
@@ -22,7 +24,7 @@ public class Index : PageModel
         Persons = await _personRepository.GetAllAsync();
     }
 
-    public async Task<IActionResult> OnPost()
+    public async Task<IActionResult> OnPostAsync()
     {
         if (!ModelState.IsValid)
         {
