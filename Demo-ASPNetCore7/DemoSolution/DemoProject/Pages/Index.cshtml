@@ -1,0 +1,35 @@
+﻿@page
+@model DemoProject.Pages.Index
+
+Hallo vanuit Razor Page!
+
+viewengine - template parser
+
+@Model.Bla
+
+@if (Model.Persons == null || Model.Persons.Count == 0)
+{
+    <p>Nog geen personen.</p>
+}
+else
+{
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Naam</th>
+            <th>Leeftijd</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var person in Model.Persons)
+        {
+            <tr>
+                <td>@person.Id</td>
+                <td>@person.Name</td>
+                <td>@person.Age</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
