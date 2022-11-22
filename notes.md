@@ -163,3 +163,45 @@ Right BICEP
       T
 ```
 
+## Mocken
+
+- Dataset fake data
+- Wordt vaak in setup gezet
+  - Initialize
+- Doen alsof je iemand anders bent
+- Exception opgooien
+
+Nepobjecten
+
+- dummies
+  - parameters die je moet meesturen waar je totaal niet in geïnteresseerd bent
+
+	```cs
+	public void DoeIets(string test, Customer iemand, Http dinges)
+	{
+		iemand.Koop(4030);
+		iemand.Koop(4030);
+		iemand.Koop(4030);
+		iemand.Koop(4030);
+	}
+	```
+
+- stubs
+  registreren interactie
+
+- fakes
+  retourneert andere data - nepdata
+
+- mocks - praktisch is dit wat de meeste developers als term aanhouden
+  - verificaties
+  - nepgedrag
+  - exceptions gooien
+  - complexe logica
+
+
+frameworks - Mock frameworks
+- Moq
+- NSubstitute
+- FakeItEasy
+- TypeMock
+- EasyMock
