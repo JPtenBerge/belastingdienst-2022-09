@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace DemoProject.Pages;
 
 public class Index : PageModel
 {
-    public string Bla { get; set; } = "Hallo daar";
+    [BindProperty] public PersonEntity NewPerson { get; set; } // model binding
 
-    public List<PersonEntity>? Persons { get; set; } = new()
+    public static List<PersonEntity>? Persons { get; set; } = new()
     {
         new()
         {
@@ -27,14 +29,21 @@ public class Index : PageModel
             Age = 67
         }
     };
-    
+
     public void OnGet() // standaardmethode voor de GET OnPut OnPost OnDelete  HTTP
     {
         Console.WriteLine("On GET");
     }
 
-    public void OnPost()
+    public IActionResult OnPost()
     {
-        
+        if (!ModelState.IsValid)
+        {
+            return Page();
+        }
+
+        Persons.Add(NewPerson);
+        // redirect naar GET
+        return RedirectToPage();
     }
 }
