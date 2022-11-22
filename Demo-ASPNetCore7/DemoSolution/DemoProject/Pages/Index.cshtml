@@ -20,7 +20,7 @@
     </ol>
 </form>
 
-@if (DemoProject.Pages.Index.Persons == null || DemoProject.Pages.Index.Persons.Count == 0)
+@if (Model.Persons == null || !Model.Persons.Any())
 {
     <p>Nog geen personen.</p>
 }
@@ -35,7 +35,7 @@ else
         </tr>
         </thead>
         <tbody>
-        @foreach (var person in DemoProject.Pages.Index.Persons)
+        @foreach (var person in Model.Persons)
         {
             <tr>
                 <td>@person.Id</td>
