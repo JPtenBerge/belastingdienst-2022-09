@@ -1,4 +1,5 @@
 using DemoProject.DataAccess;
+using DemoProject.Middleware;
 using DemoProject.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,7 +12,7 @@ builder.Services.AddRazorPages();
 
 // builder.Services.AddTransient<IPersonRepository, PersonInMemoryRepository>(); // altijd een nieuwe. voordelig qua side effects
 builder.Services.AddTransient<IPersonRepository, PersonDbRepository>(); // altijd een nieuwe. voordelig qua side effects
-
+builder.Services.AddTransient<ExceptionLoggingMiddleware>();
 
 // builder.Services.AddScoped<>()    // gescoped op basis van het HTTP-request
 // builder.Services.AddSingleton<>() // altijd dezelfde. voordelig qua geheugenverbruik
@@ -25,6 +26,13 @@ var app = builder.Build();
 
 // code hieronder gaat voor iedere request af
 
+app.UseDeveloperExceptionPage();
+
+app.UseExceptionLoggingMiddleware();
+
+app.UseStaticFiles(); // wwwroot
+
 app.MapRazorPages();
 
+app
 app.Run();

@@ -12,7 +12,7 @@ We gaan een Todo-webapplicatie maken.
 1. Unittest een interessant stukje van jullie pagina.
 1. Sla jullie todos op in een database.
    - kies maar even wat het makkelijkst is als databasesysteem (docker, mysql, sqlite, in-memory) - behalve als je Falco heeft
-
+1. Maak een stuk middleware die alle 404's logt.
 
 
 
