@@ -1,4 +1,5 @@
-﻿using DemoProject.DataAccess;
+﻿using System.Linq.Expressions;
+using DemoProject.DataAccess;
 using Microsoft.EntityFrameworkCore;
 
 namespace DemoProject.Repositories;
@@ -10,6 +11,18 @@ public class PersonDbRepository : IPersonRepository
     {
         _context = context;
     }
+
+    // alle coole mensen:
+    // - aparte methode
+    // - GetAllAsync().Where(). mooi qua hergebruik. alleen nog maar ff filteren. liefst database dit werk laten doen.
+    // - parameters
+    //   - GetAllAsync(boolean alleenCool)
+    //   - GetAllAsync(boolean alleenCool, boolean alleenNietCool)
+    //   - GetAllAsync(int minAge)
+    //   - GetAllAsync(int maxAge)
+    // - Func<> parameters
+    //   - GetAllAsync(Expression<Func<>, FUnc<> order, Func<> group, take, skip)
+    // - IQueryable<> teruggeven? Aanroepende partij moet dan Microsoft.EntityFrameworkCore usen voor de .ToListAsync()
     
     public async Task<IEnumerable<PersonEntity>> GetAllAsync() // deferred execution
     {
