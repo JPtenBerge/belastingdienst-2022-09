@@ -1,6 +1,9 @@
 ﻿@page
 @model DemoProject.Pages.Index
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@section scripts {
+    <script src="formuliervalidaties.js"></script>
+}
 
 <form method="post">
     <ol>
@@ -15,10 +18,25 @@
             <span asp-validation-for="NewPerson.Age"></span>
         </li>
         <li>
+            <label asp-for="NewPerson.Age"></label>
+            <select>
+                <option value="4">Brandweerman</option>
+                <option value="8">CEO</option>
+                <option value="146">Software developer</option>
+            </select>
+            <span asp-validation-for="NewPerson.Age"></span>
+        </li>
+        <li>
             <button>Voeg toe</button>
         </li>
     </ol>
 </form>
+
+nu met partial:
+
+@* View Components voor meer complexe logica-zaken *@
+<partial name="_Spinner" model="Model.Message1" />
+<partial name="_Spinner" model="Model.Message2" />
 
 @if (Model.Persons == null || !Model.Persons.Any())
 {
@@ -42,7 +60,9 @@ else
                     <td>@person.Id</td>
                     <td>@person.Name</td>
                     <td>@person.Age</td>
-                    <td><input type="checkbox" name="selectedPersons" value="@person.Id"></td>
+                    <td>
+                        <input type="checkbox" name="selectedPersons" value="@person.Id">
+                    </td>
                 </tr>
             }
             </tbody>

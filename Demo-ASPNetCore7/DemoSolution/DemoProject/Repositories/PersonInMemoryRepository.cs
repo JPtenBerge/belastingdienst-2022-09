@@ -1,4 +1,6 @@
-﻿namespace DemoProject.Repositories;
+﻿using DemoProject.Entities;
+
+namespace DemoProject.Repositories;
 
 public class PersonInMemoryRepository : IPersonRepository
 {

@@ -34,5 +34,4 @@ app.UseStaticFiles(); // wwwroot
 
 app.MapRazorPages();
 
-app
 app.Run();

@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DemoProject;
+namespace DemoProject.Entities;
 
 public class PersonEntity
 {
@@ -13,4 +14,9 @@ public class PersonEntity
     [Required]
     [Range(0, 130)]
     public int Age { get; set; } // 32 bits = 2^32 = 2.147.xxx.xxx
+
+    public int ProfessionId { get; set; }
+
+    // [ForeignKey("ProfessionId")]
+    public ProfessionEntity Profession { get; set; }
 }

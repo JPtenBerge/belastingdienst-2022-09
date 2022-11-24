@@ -1,4 +1,5 @@
 using DemoProject;
+using DemoProject.Entities;
 using DemoProject.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
