@@ -10,3 +10,16 @@ We gaan een Todo-webapplicatie maken.
 1. Zorg ervoor dat een todo kan worden “Af”  gevinkt.
 1. Creëer een repository die het stukje data access afhandelt. Voor nu simpelweg een in-memory repository. In een toekomstige oefening gaan we een repository toevoegen die verbinding maakt met een database.
 1. Unittest een interessant stukje van jullie pagina.
+1. Sla jullie todos op in een database.
+   - kies maar even wat het makkelijkst is als databasesysteem (docker, mysql, sqlite, in-memory) - behalve als je Falco heeft
+
+
+
+
+- API richting database
+  - die lijken allemaal wel op elkaar, maar zijn net wel overal een beetje anders
+  - SFL.cs - 32.000
+    - FoxPro
+    - SQL Server
+    - DB2
+  

@@ -66,3 +66,23 @@ voordelen jQuery:
 
     });
     ```
+
+## Dependency Injection??
+
+- een vorm van inversion of control (IoC)
+- handig met unittesten
+
+ELI5 - Explain Like I'm 5 - kind heeft dorst, behoefte aan drinken uitspreken richting ouders.
+
+## Soorten testen (herhaling)
+
+unittesten
+- stukjes code
+
+integratietesten
+- http-requests
+  - Test of statuscode en header terug wordt gestuurd - `Location: ...`
+
+end-to-end testen
+- browser automatiseren
+
