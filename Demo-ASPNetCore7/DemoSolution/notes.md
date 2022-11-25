@@ -86,3 +86,128 @@ integratietesten
 end-to-end testen
 - browser automatiseren
 
+## Entity Framework Core
+
+- ORM: Object-Relational Mapper
+
+- `DbContext<>`
+- `DbSet<>`
+
+Alternatieven:
+- EF6
+- Dapper (van StackExchange)
+- Belgrade
+- NHibernate
+
+## REST
+
+REpresentational State Transfer API
+
+- manier om applicatie naar buitenwereld open te zetten naar de mensen en data die je wil
+
+- endpoints om data vandaan te halen
+  - JSON
+  - XML
+
+  HTTP header "Accept: text/html, application/xml, application/json"
+
+- soort request - HTTP verb
+  - GET		op te halen
+  - POST		toevoegen   /wijzigen
+  - PUT		wijzigen    /toevoegen
+  - DELETE    verwijderen
+  - PATCH		deel wijzigen
+
+  GET index.php?action=delete_customer&id=14
+
+
+POST  /api/car     { make: '...', model: '...' }
+POST  /api/car     { make: '...', model: '...' }
+POST  /api/car     { make: '...', model: '...' }
+POST  /api/car     { make: '...', model: '...' }
+POST  /api/car     { make: '...', model: '...' }
+POST  /api/car     { make: '...', model: '...' }
+
+6 nieuwe auto's
+
+PUT  /api/car/15     { make: '...', model: '...' }
+PUT  /api/car/15     { make: '...', model: '...' }
+PUT  /api/car/15     { make: '...', model: '...' }
+PUT  /api/car/15     { make: '...', model: '...' }
+PUT  /api/car/15     { make: '...', model: '...' }
+PUT  /api/car/15     { make: '...', model: '...' }
+
+1 nieuwe auto
+
+idempotency
+
+eenduidigheid
+
+- docs van API
+- HTTP
+
+Lastige dingen met REST?
+
+- Processen uitdrukken in resources
+  - Prima:
+    ```sh
+    /api/car
+    /api/product
+    /api/human
+    ```
+
+  - Lastiger:
+    ```sh
+    /api/vergunning-aanvragen
+    /api/rijbewijs-aanvragen
+    /api/rechtzaak
+    ```
+- versioneren
+  ```sh
+  /api/v1/car
+  /api/v2/car
+  /api/v3/car
+  ```
+
+API testing tools:
+- curl (CLI)
+- Postman (GUI)
+- Insomnia (GUI). Vind ikzelf fijner dan Postman want:
+  - Had eerder een dark theme
+  - Rustigere UI
+  - Had bepaalde features eerder: gRPC
+- Thunder Client (VS Code extensie)
+- REST Client (bestandjes .rest/.http, handig voor hergebruik).
+
+### HTTP-statuscodessen
+
+REST - HTTP - statuscodessen
+
+2xx - SUCCESS
+- 200 OK
+- 201 Created     (vaak bij POST)
+- 204 No Content  (vaak bij DELETE)
+
+3xx - redirect
+- 301/302 - permanent/tijdelijk
+
+4xx - client error
+- 400 Bad Request
+- 401/403 Unauthorized/Forbidden
+- 404 Not Found
+- 405 Method not allowed - POST waar geen POST ondersteund wordt
+- 415 Mediatype not supported - XML stuurt naar een endpoint die XML niet kan parsen
+- 418 I'm a teapot - 1 april 1999
+
+5xx - server error
+- 500 Internal Server Error
+- 502 Bad Gateway
+
+
+
+
+
+
+
+
+
