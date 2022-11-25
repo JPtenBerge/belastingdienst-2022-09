@@ -16,7 +16,15 @@ builder.Services.AddRazorPages();
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
     // options.SerializerSettings.Converters.Add(new StringEnumConverter());
-    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve; // $id en $ref
+    // options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve; // $id en $ref
+});
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("blazorfrontend", policy =>
+    {
+        policy.WithOrigins("https://localhost:7015").AllowCredentials().AllowAnyHeader().AllowAnyMethod();
+    });
 });
 
 // builder.Services.AddControllers().AddNewtonsoftJson(options =>
@@ -45,6 +53,8 @@ var app = builder.Build();
 app.UseDeveloperExceptionPage();
 
 app.UseExceptionLoggingMiddleware();
+
+app.UseCors("blazorfrontend"); // stuurt access-origin header terug
 
 app.UseStaticFiles(); // wwwroot
 
