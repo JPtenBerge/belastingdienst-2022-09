@@ -1,4 +1,6 @@
-﻿namespace DemoProject.Entities;
+﻿using System.Text.Json.Serialization;
+
+namespace DemoProject.Entities;
 
 public class ProfessionEntity
 {
@@ -6,5 +8,6 @@ public class ProfessionEntity
 
     public string Title { get; set; }
 
+    [JsonIgnore]
     public List<PersonEntity> PersonsWithThisProfession { get; set; }
 }

@@ -28,7 +28,7 @@ public class PersonDbRepository : IPersonRepository
     public async Task<IEnumerable<PersonEntity>> GetAllAsync() // deferred execution
     {
         // ToListAsync forceert een query richting de database
-        return await _context.Persons.ToListAsync(); // dit haalt de data nog niet daadwerkelijk uit je database
+        return await _context.Persons.Include(x => x.Profession).ToListAsync(); // dit haalt de data nog niet daadwerkelijk uit je database
     }
 
     public async Task<PersonEntity> AddAsync(PersonEntity newPerson)

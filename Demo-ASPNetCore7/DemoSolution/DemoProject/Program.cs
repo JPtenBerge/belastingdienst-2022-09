@@ -10,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
 
+builder.Services.AddControllers();
+
 // builder.Services.AddTransient<IPersonRepository, PersonInMemoryRepository>(); // altijd een nieuwe. voordelig qua side effects
 builder.Services.AddTransient<IPersonRepository, PersonDbRepository>(); // altijd een nieuwe. voordelig qua side effects
 builder.Services.AddTransient<IProfessionRepository, ProfessionDbRepository>(); // altijd een nieuwe. voordelig qua side effects
@@ -32,6 +34,8 @@ app.UseDeveloperExceptionPage();
 app.UseExceptionLoggingMiddleware();
 
 app.UseStaticFiles(); // wwwroot
+
+app.MapControllers();
 
 app.MapRazorPages();
 

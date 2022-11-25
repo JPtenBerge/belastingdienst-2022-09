@@ -14,7 +14,9 @@ We gaan een Todo-webapplicatie maken.
    - kies maar even wat het makkelijkst is als databasesysteem (docker, mysql, sqlite, in-memory) - behalve als je Falco heeft
 1. Maak een stuk middleware die alle 404's logt.
 1. Hang jullie todo onder een categorie: Huishoudelijk, Relatiemanagement, ...
-
+1. Maak twee controllers voor het benaderen van jullie data:
+   - Todo endpoint: ophalen, toevoegen & (if time permits) afvinken met een patch
+   - Category endpoint: enkel ophalen
 
 - API richting database
   - die lijken allemaal wel op elkaar, maar zijn net wel overal een beetje anders
