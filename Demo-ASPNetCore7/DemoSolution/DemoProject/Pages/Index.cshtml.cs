@@ -35,7 +35,6 @@ public class Index : PageModel
 
     public async Task<IActionResult> OnPostAsync()
     {
-        Thread.Sleep(2000);
         if (!ModelState.IsValid)
         {
             await GetDataAsync();
@@ -49,7 +48,7 @@ public class Index : PageModel
     private async Task GetDataAsync()
     {
         Persons = await _personRepository.GetAllAsync();
-        Professions = await _professionRepository.GetAll();
+        Professions = await _professionRepository.GetAllAsync();
 
         ProfessionItems = Professions.Select(x => new SelectListItem
         {

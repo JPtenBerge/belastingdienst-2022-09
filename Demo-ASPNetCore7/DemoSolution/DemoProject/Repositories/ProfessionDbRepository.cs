@@ -12,7 +12,7 @@ public class ProfessionDbRepository : IProfessionRepository
         _context = context;
     }
     
-    public async Task<IEnumerable<ProfessionEntity>> GetAll()
+    public async Task<IEnumerable<ProfessionEntity>> GetAllAsync()
     {
         return await _context.Professions.ToListAsync();
     }

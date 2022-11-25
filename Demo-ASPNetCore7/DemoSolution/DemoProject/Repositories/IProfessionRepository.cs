@@ -4,5 +4,5 @@ namespace DemoProject.Repositories;
 
 public interface IProfessionRepository
 {
-    Task<IEnumerable<ProfessionEntity>> GetAll();
+    Task<IEnumerable<ProfessionEntity>> GetAllAsync();
 }
