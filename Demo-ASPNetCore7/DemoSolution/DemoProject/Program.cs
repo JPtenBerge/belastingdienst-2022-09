@@ -1,7 +1,10 @@
+using System.Text.Json.Serialization;
 using DemoProject.DataAccess;
 using DemoProject.Middleware;
 using DemoProject.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +13,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    // options.SerializerSettings.Converters.Add(new StringEnumConverter());
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve; // $id en $ref
+});
+
+// builder.Services.AddControllers().AddNewtonsoftJson(options =>
+// {
+//     // options.SerializerSettings.Converters.Add(new StringEnumConverter());
+//     options.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.Objects; // $id en $ref
+// });
 
 // builder.Services.AddTransient<IPersonRepository, PersonInMemoryRepository>(); // altijd een nieuwe. voordelig qua side effects
 builder.Services.AddTransient<IPersonRepository, PersonDbRepository>(); // altijd een nieuwe. voordelig qua side effects

@@ -8,6 +8,6 @@ public class ProfessionEntity
 
     public string Title { get; set; }
 
-    [JsonIgnore]
+    
     public List<PersonEntity> PersonsWithThisProfession { get; set; }
 }
