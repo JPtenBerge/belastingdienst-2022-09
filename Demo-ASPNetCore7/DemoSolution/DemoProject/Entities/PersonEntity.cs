@@ -18,5 +18,5 @@ public class PersonEntity
     public int ProfessionId { get; set; }
 
     // [ForeignKey("ProfessionId")]
-    public ProfessionEntity Profession { get; set; }
+    public ProfessionEntity? Profession { get; set; }
 }
