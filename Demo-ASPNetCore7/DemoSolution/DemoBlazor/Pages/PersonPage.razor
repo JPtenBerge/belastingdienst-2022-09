@@ -1,0 +1,25 @@
+﻿@page "/persons"
+
+<h3>Persons</h3>
+
+Hallo vanaf persons page.
+
+@Bladiebla
+
+<button @onclick="ChangeBladiebla">Verander bladiebla</button>
+
+<button @onclick="GetPersons">GET persons</button>
+
+@if (Persons == null)
+{
+    <p>Geen personen</p>
+}
+else
+{
+    <ul>
+        @foreach (var person in Persons)
+        {
+            <li>@person.Name is @person.Age jaar oud</li>
+        }
+    </ul>
+}

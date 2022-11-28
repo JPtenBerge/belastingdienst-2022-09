@@ -1,5 +1,5 @@
 using DemoProject;
-using DemoProject.Entities;
+using Demo.Shared.Entities;
 using DemoProject.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -15,7 +15,7 @@ public class IndexTest
     public IndexTest()
     {
         _mockPersonRepo = new Mock<IPersonRepository>();
-        _sut = new DemoProject.Pages.Index(_mockPersonRepo.Object);
+        // _sut = new DemoProject.Pages.Index(_mockPersonRepo.Object);
     }
     
     [Fact]

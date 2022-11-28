@@ -1,4 +1,4 @@
-﻿using DemoProject.Entities;
+﻿using Demo.Shared.Entities;
 
 namespace DemoProject.Repositories;
 

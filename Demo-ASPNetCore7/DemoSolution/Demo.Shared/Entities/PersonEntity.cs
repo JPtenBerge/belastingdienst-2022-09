@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DemoProject.Entities;
+namespace Demo.Shared.Entities;
 
 public class PersonEntity
 {
