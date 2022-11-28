@@ -205,9 +205,137 @@ REST - HTTP - statuscodessen
 
 
 
+### REST maturity levels
+
+Plain Old XML
+
+/api/...
+
+GET POST PUT PATCH DELETE
+
+Hypermedia As The Engine Of Application State
+
+```json
+{
+	"name": "JP",
+	"age": 36,
+	"links": [
+		{ "girlfriend": "api/36/girlfriend" },
+		{ "employes": "api/employer/infosupport" },
+	]
+}
+```
+
+publieke APIs
+client (SPA - blazor/angular/vue) <==> server (APIs)
 
 
 
 
+DTO's
+- Data Transfer Objects
 
+GetRequestMessage
+GetResponseMessage
+
+POCO's
+
+AutoMapper
+Mapster
+
+
+
+
+ASP.NET Core
+1.0    Newtonsoft.Json
+2.0    Newtonsoft.Json
+3.0    System.Text.Json - blazor
+       - circulaire referenties
+5.0    eindelijk wel circ. ref.
+
+
+## Blazor
+
+- frontendframework
+- Microsoft
+- lijkt heel erg op Razor Pages
+  @bla
+- C#
+
+Blazor WebAssembly
+- jouw code draait in de browser
+  - dankzij HTML5's WebAssembly - Rust
+- microversie van .NET
+  - 7MB (hello world)
+  - 2MB (de meest geoptimaliseerde variant die ik langs heb zien komen)
+
+Blazor Server
+- jouw code draait op de server
+- SignalR (websocket)
+- er hoeft niet heel veel data te worden gestuurd naar de frontend
+- je moet wel continu een verbinding open hebben staan
+
+
+.dll
+.dll.br - Brotli
+.dll.gz - GZip
+
+- matblazor mudblazor antdesign  (UI-framework)
+
+
+### Blazor en unittesten
+
+sommige dingen kan ik niet unittesten:
+
+```html
+<input @ref="InputIets">
+```
+```cs
+public ElementReference InputIets { get; set; } // ElementReference = struct
+
+//...
+
+await InputIets.FocusAsync();
+```
+In test:
+```cs
+new Mock<ElementReference>(); // - no no
+
+### Waarom WebAssembly?
+
+```sh
+gecompileerde code           > geinterpreteerde code
+
+C C++  Java C#  VB  Rust           JS  Python  PHP
+WebAssembly                    
+```
+
+JS
+- flexibel
+- dynamisch
+
+```js
+let obj = { x: 24, y: 'hoi' };
+obj.z = 34935;
+delete obj.x;
+
+let x = 'www';
+x = 24;
+x = {};
+x = [];
+x = [true, 42, 'www', "qqq", `qwsdf`, {}, []];
+
+// TypeScript !== typesafe
+
+2 == '2' // true
+2 === '2' // false
+
+let verdieping = 0;
+if(!verdieping) { undefined null 0
+	
+}
+```
+
+CORS? Cross-origin resource sharing
+- beveiligingsfeature
 
