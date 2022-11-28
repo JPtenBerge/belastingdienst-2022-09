@@ -17,6 +17,8 @@ We gaan een Todo-webapplicatie maken.
 1. Maak twee controllers voor het benaderen van jullie data:
    - Todo endpoint: ophalen, toevoegen & (if time permits) afvinken met een patch
    - Category endpoint: enkel ophalen
+1. Creëer een kleine Blazor WebAssembly-webapp die todo's ophaalt van de server en toont in een lijstje.
+
 
 - API richting database
   - die lijken allemaal wel op elkaar, maar zijn net wel overal een beetje anders
