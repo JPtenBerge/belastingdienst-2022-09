@@ -1,4 +1,5 @@
 ﻿using Demo.Shared.Entities;
+using DemoProject.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 

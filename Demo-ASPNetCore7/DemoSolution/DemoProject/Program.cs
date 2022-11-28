@@ -2,6 +2,7 @@ using System.Text.Json.Serialization;
 using Demo.Shared.Entities;
 using DemoProject.DataAccess;
 using DemoProject.Middleware;
+using DemoProject.Models;
 using DemoProject.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

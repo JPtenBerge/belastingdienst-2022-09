@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Demo.Shared.Entities;
+namespace DemoProject.Models;
 
 public class ScratchUser : IdentityUser
 {
