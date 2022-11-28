@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
 using Demo.Shared.Entities;
 using DemoProject.DataAccess;
+using DemoProject.Hubs;
 using DemoProject.Middleware;
 using DemoProject.Models;
 using DemoProject.Repositories;
@@ -17,6 +18,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddIdentity<ScratchUser, IdentityRole>().AddEntityFrameworkStores<PeopleContext>();
 
 builder.Services.AddRazorPages();
+
+builder.Services.AddSignalR();
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
@@ -64,6 +67,8 @@ app.UseCors("blazorfrontend"); // stuurt access-origin header terug
 app.UseStaticFiles(); // wwwroot
 
 app.UseAuthentication(); // leest de auth cookie uit
+
+app.MapHub<ChatHub>("/chatHub");
 
 app.MapControllers();
 

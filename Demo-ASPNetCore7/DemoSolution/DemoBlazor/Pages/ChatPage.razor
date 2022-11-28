@@ -1,0 +1,50 @@
+﻿@page "/chat"
+@using Microsoft.AspNetCore.SignalR.Client
+@using Demo.Shared.Entities
+<h3>TMF chat</h3>
+
+<EditForm Model="NewMessage" OnSubmit="Send">
+    Name: <InputText @bind-Value="NewMessage.Name"/><br/>
+    Content: <InputText @bind-Value="NewMessage.Content"/><br/>
+    <button>Zeg</button>
+</EditForm>
+
+<ol style="display: flex; flex-direction:  column-reverse;">
+    @foreach (var message in Messages)
+    {
+        <li>
+            <strong>@message.Name</strong>:
+            @message.Content
+        </li>
+    }
+</ol>
+
+@code {
+
+    public ChatMessageEntity NewMessage { get; set; } = new();
+
+    public List<ChatMessageEntity> Messages { get; set; } = new();
+
+
+    private HubConnection _connection;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Console.WriteLine("Hlalooo");
+        _connection = new HubConnectionBuilder().WithUrl("https://localhost:7046/chatHub").Build();
+        _connection.On("message", async (ChatMessageEntity message) =>
+        {
+            Messages.Add(message);
+            await InvokeAsync(() => StateHasChanged());
+        });
+        await _connection.StartAsync();
+    }
+
+
+    public async Task Send()
+    {
+        await _connection.SendAsync("Send", NewMessage);
+        NewMessage.Content = "";
+    }
+
+}

@@ -21,7 +21,7 @@ We gaan een Todo-webapplicatie maken.
 1. Het wordt een familie-todo-app. Registreer bij iedere todo wie hem heeft toegevoegd. En men moet dus zijn ingelogd om todos toe te voegen.
    - Kies zelf maar of je Azure AD wil gebruiken of je lokale database wil gebruiken
    - Laat de Blazor-app maar even links liggen voor nu
-
+1. Wanneer een ander familielid een todo-item toevoegt, dan moeten alle andere familieleden dat natuurlijk meteen kunnen zien.
 
 
 - API richting database
