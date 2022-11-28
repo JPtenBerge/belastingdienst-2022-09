@@ -1,7 +1,9 @@
 using System.Text.Json.Serialization;
+using Demo.Shared.Entities;
 using DemoProject.DataAccess;
 using DemoProject.Middleware;
 using DemoProject.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -10,6 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // registreer je alle grote bouwblokken
 // dependency injection
+
+builder.Services.AddIdentity<ScratchUser, IdentityRole>().AddEntityFrameworkStores<PeopleContext>();
 
 builder.Services.AddRazorPages();
 
@@ -57,6 +61,8 @@ app.UseExceptionLoggingMiddleware();
 app.UseCors("blazorfrontend"); // stuurt access-origin header terug
 
 app.UseStaticFiles(); // wwwroot
+
+app.UseAuthentication(); // leest de auth cookie uit
 
 app.MapControllers();
 

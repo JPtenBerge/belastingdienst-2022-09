@@ -1,0 +1,10 @@
+﻿@page "/auth/{action?}"
+@model DemoProject.Pages.Auth
+
+<p>User: @(User.Identity.IsAuthenticated ? User.Identity.Name : "niet ingelogd")</p>
+<p>Status: @Model.Status</p>
+
+<a href="/auth/register">Registreer</a> |
+<a href="/auth/login">Log in</a> |
+<a href="/auth/logout">Log uit</a> |
+<a href="/auth/do-nothing">Doe niks</a>

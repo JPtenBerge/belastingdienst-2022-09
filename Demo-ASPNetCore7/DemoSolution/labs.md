@@ -18,6 +18,10 @@ We gaan een Todo-webapplicatie maken.
    - Todo endpoint: ophalen, toevoegen & (if time permits) afvinken met een patch
    - Category endpoint: enkel ophalen
 1. Creëer een kleine Blazor WebAssembly-webapp die todo's ophaalt van de server en toont in een lijstje.
+1. Het wordt een familie-todo-app. Registreer bij iedere todo wie hem heeft toegevoegd. En men moet dus zijn ingelogd om todos toe te voegen.
+   - Kies zelf maar of je Azure AD wil gebruiken of je lokale database wil gebruiken
+   - Laat de Blazor-app maar even links liggen voor nu
+
 
 
 - API richting database
