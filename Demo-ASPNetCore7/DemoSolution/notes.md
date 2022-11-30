@@ -179,6 +179,10 @@ API testing tools:
 - Thunder Client (VS Code extensie)
 - REST Client (bestandjes .rest/.http, handig voor hergebruik).
 
+
+CORS? Cross-origin resource sharing
+- beveiligingsfeature
+
 ### HTTP-statuscodessen
 
 REST - HTTP - statuscodessen
@@ -336,6 +340,67 @@ if(!verdieping) { undefined null 0
 }
 ```
 
-CORS? Cross-origin resource sharing
-- beveiligingsfeature
+### Authenticatie & autorisatie
+
+- Identificatie: wie ben je
+- Authenticatie: bewijs dat je dat bent
+- Autorisatie: wat mag je
+
+
+passwords
+passphrases
+2FA
+
+something you know
+something you are   - oogscan gezichtsscan vingerafdruk bloed
+something you have
+
+**Waar JWT's op te slaan?**
+- cookies
+  => slechte naam
+  => MitM
+  => HttpOnly
+  => wordt altijd meegestuurd naar server => XSRF
+
+- web storage
+  - local storage
+  - session storage
+  => XSS
+
+- caches
+
+
+protected session storage - ASP.NET Core
+
+
+### Realtime communicatie
+
+- multiplayer gaming
+  - multiplayer snake
+- chatrooms
+- VoIP
+- alles met interactie waar je moet wachten
+- build pipeline
+- domino's / thuisbezorgd
+- facebook / nieuws / fake nieuws
+- multiplayer sheets/docs
+- browser refreshes / Blazor Server's UI ding
+	
+
+Mogelijkheden:
+
+- Polling
+- Long polling
+- WebSockets
+  - SignalR
+
+HTTP/1.1
+
+HTTP/2  SPDY
+- multiplexing
+
+HTTP/3  Quick UDP Internet Connections
+- UDP
+
+
 
