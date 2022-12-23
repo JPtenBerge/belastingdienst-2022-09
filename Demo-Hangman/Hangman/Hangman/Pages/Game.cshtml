@@ -1,0 +1,44 @@
+﻿@page "{gameId}"
+@using Hangman.Shared
+@model Hangman.Pages.Game
+
+
+<partial name="Hangman" model="Model.CurrentGame.NrOfIncorrectGuesses" />
+
+@foreach (var letter in Model.CurrentGame.WordToGuess)
+{
+    if (Model.CurrentGame.GuessedLetters.Contains(letter))
+    {
+        <text>@letter </text>
+    }
+    else
+    {
+        <text>_ </text>
+    }
+}
+
+@if (Model.NotificationMessage != null)
+{
+    <p>@Model.NotificationMessage</p>
+}
+
+
+@if (Model.CurrentGame.State == GameState.Solved)
+{
+    <p>Je hebt het woord geraden, yaaaaay!</p>
+}
+else if (Model.CurrentGame.State == GameState.Unsolved)
+{
+    <p>Oei helaas je was niet goed genoeg vandaag. Spel klaar.</p>
+}
+else
+{
+    <ol class="letters">
+        @foreach (var letter in Model.Alphabet)
+        {
+            <li class="@(Model.CurrentGame.GuessedLetters.Contains(letter) ? "guessed" : "")">
+                <a href="/game/@Model.CurrentGame.Id?letter=@letter">@letter</a>
+            </li>
+        }
+    </ol>    
+}

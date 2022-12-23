@@ -1,0 +1,408 @@
+﻿@font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 200;
+    src: url(https://fonts.gstatic.com/s/titilliumweb/v15/NaPDcZTIAOhVxoMyOr9n_E7ffAzHGItzZg.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/titilliumweb/v15/NaPecZTIAOhVxoMyOr9n_E7fdMPmCA.ttf) format('truetype');
+}
+/* Mixins Start */
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/* Mixins end */
+body {
+    margin: 0;
+    padding: 0;
+}
+.title,
+.result,
+#scoreBoard {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 200;
+}
+.title h4,
+.result h4,
+#scoreBoard h4 {
+    font-weight: 200;
+}
+.title .next,
+.result .next,
+#scoreBoard .next,
+.title > div,
+.result > div,
+#scoreBoard > div {
+    font-weight: 400;
+}
+.overLay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    z-index: 10;
+    perspective: 1000px;
+}
+.overLay .youWon,
+.overLay .youLost {
+    background: #00A8FF;
+    margin: 20% auto 0;
+    width: 60%;
+    padding: 10px;
+    transform: rotateY(450deg);
+    -webkit-transition: 1s ease-out;
+    -moz-transition: 1s ease-out;
+    -ms-transition: 1s ease-out;
+    -o-transition: 1s ease-out;
+}
+.overLay .youWon.flipped,
+.overLay .youLost.flipped {
+    transform: rotateY(0deg);
+}
+.overLay .youWon h4,
+.overLay .youLost h4 {
+    color: #fff;
+    font-size: 32px;
+}
+.overLay .youWon p,
+.overLay .youLost p {
+    text-transform: uppercase;
+    font-size: 24px;
+}
+.overLay .youWon .gsearch,
+.overLay .youLost .gsearch {
+    text-decoration: none;
+    font-size: 12px;
+    color: #fff;
+    height: 20px;
+    width: 20px;
+}
+.overLay .youWon > span,
+.overLay .youLost > span {
+    display: block;
+    background: #eee;
+    color: #047A9D;
+    padding: 10px;
+    cursor: pointer;
+}
+.overLay .youWon > *,
+.overLay .youLost > * {
+    text-align: center;
+}
+.wrapper {
+    font-family: 'Trebuchet MS';
+    overflow: auto;
+    margin: 2px auto 0;
+    width: 500px;
+    background: #eee;
+    border: 5px solid #00A8FF;
+    position: relative;
+}
+.wrapper .title {
+    text-align: center;
+    padding: 5px;
+    background: #00A8FF;
+    color: #fff;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+.wrapper .categories {
+    width: 60%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.wrapper .categories > span {
+    display: block;
+    text-align: center;
+    margin: 30px 0;
+    text-transform: uppercase;
+    font-family: 'Titillium Web', sans-serif;
+    color: #047A9D;
+}
+.wrapper .categories > select {
+    width: 120%;
+    display: block;
+    margin: 0 auto;
+    outline: 0;
+    border: none;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 16px;
+}
+.wrapper .categories > select option {
+    padding: 5px;
+    background: #eee;
+    font-weight: 200;
+    cursor: pointer;
+}
+.wrapper .start {
+    text-align: center;
+    background: #00A8FF;
+    color: #fff;
+    cursor: pointer;
+}
+.wrapper .start,
+.wrapper #answerSpace {
+    width: 200px;
+    padding: 10px;
+    margin: 10px auto 0;
+    margin-top: 15px;
+}
+.wrapper #answerSpace {
+    visibility: hidden;
+    width: 95%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.wrapper #answerSpace .letter {
+    display: inline-block;
+    margin: 1px;
+    padding: 1px;
+    border-bottom: 1px solid #00A8FF;
+    width: 10px;
+    height: 15px;
+    text-align: center;
+}
+.wrapper #answerSpace .letter.space {
+    border: none;
+}
+.wrapper #keypad {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 15px;
+    display: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.wrapper #keypad span.letter {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 10px;
+    color: #00A8FF;
+    background: #fff;
+    cursor: pointer;
+}
+.wrapper #keypad span.letter.disabled {
+    pointer-events: none;
+    color: #eee;
+}
+.wrapper #hangMan {
+
+    border-bottom: 1px solid #047A9D;
+    position: relative;
+}
+.wrapper #hangMan .indicator {
+    z-index: 9;
+    position: absolute;
+    padding: 10px;
+    top: -10px;
+    right: 0;
+    color: #047A9D;
+}
+.wrapper #hangMan .hangman {
+    width: 300px;
+    margin: 0 auto;
+    position: relative;
+}
+.wrapper #hangMan .hangman > div {
+    position: relative;
+    visibility: hidden;
+}
+.wrapper #hangMan .hangman.hang1 .pole {
+    visibility: visible!important;
+}
+.wrapper #hangMan .hangman.hang2 .shaft {
+    visibility: visible!important;
+}
+.wrapper #hangMan .hangman.hang3 .rope {
+    visibility: visible!important;
+}
+.wrapper #hangMan .hangman.hang4 .man {
+    visibility: visible!important;
+}
+.wrapper #hangMan .hangman.hang5 .wrapperMan {
+    margin-top: 0px!important;
+}
+.wrapper #hangMan .hangman.hang5 .wrapperMan .hands:before,
+.wrapper #hangMan .hangman.hang5 .wrapperMan .legs:before {
+    -webkit-animation: deadRight 0.5s linear;
+}
+.wrapper #hangMan .hangman.hang5 .wrapperMan .hands:after,
+.wrapper #hangMan .hangman.hang5 .wrapperMan .legs:after {
+    -webkit-animation: deadLeft 0.5s linear;
+}
+.wrapper #hangMan .hangman .base {
+    visibility: visible;
+    height: 50px;
+    width: 100px;
+    background: #00A8FF;
+    border-radius: 50px 50px 0 0;
+}
+.wrapper #hangMan .hangman .base:after {
+    content: ' ';
+    width: 100px;
+    height: 10px;
+    background: #047A9D;
+    position: absolute;
+    bottom: 0;
+}
+.wrapper #hangMan .hangman .pole {
+    height: 300px;
+    width: 10px;
+    background: #00A8FF;
+    margin-left: 45px;
+}
+.wrapper #hangMan .hangman .shaft {
+    height: 5px;
+    width: 250px;
+    background: #00A8FF;
+}
+.wrapper #hangMan .hangman .rope {
+    height: 50px;
+    width: 1px;
+    background: #047A9D;
+    left: 240px;
+    top: 0;
+    position: absolute;
+}
+.wrapper #hangMan .hangman .man {
+    height: 200px;
+    width: 100px;
+    position: absolute;
+    top: 50px;
+    left: 190px;
+}
+.wrapper #hangMan .hangman .man .wrapperMan {
+    position: relative;
+    margin-top: -20px;
+}
+.wrapper #hangMan .hangman .man .wrapperMan > div:after,
+.wrapper #hangMan .hangman .man .wrapperMan > div:before {
+    background: #00A8FF;
+    content: '';
+    position: absolute;
+}
+.wrapper #hangMan .hangman .man .wrapperMan .face {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin-left: 25px;
+    background: #00A8FF;
+}
+.wrapper #hangMan .hangman .man .wrapperMan .face:after {
+    height: 100px;
+    width: 2px;
+    top: 50px;
+    left: 50px;
+}
+.wrapper #hangMan .hangman .man .wrapperMan .hands {
+    height: 99px;
+}
+.wrapper #hangMan .hangman .man .wrapperMan .hands,
+.wrapper #hangMan .hangman .man .wrapperMan .legs {
+    -webkit-transition: 0.2s Linear;
+    -moz-transition: 0.2s Linear;
+    -ms-transition: 0.2s Linear;
+    -o-transition: 0.2s Linear;
+}
+.wrapper #hangMan .hangman .man .wrapperMan .hands:before,
+.wrapper #hangMan .hangman .man .wrapperMan .legs:before,
+.wrapper #hangMan .hangman .man .wrapperMan .hands:after,
+.wrapper #hangMan .hangman .man .wrapperMan .legs:after {
+    height: 2px;
+    width: 50px;
+    transform: rotate(-45deg);
+    transform-origin: 100% 0%;
+}
+.wrapper #hangMan .hangman .man .wrapperMan .hands:before,
+.wrapper #hangMan .hangman .man .wrapperMan .legs:before {
+    transform: rotate(45deg);
+    transform-origin: 0% 100%;
+    right: 0;
+}
+.wrapper #scoreBoard {
+    margin-top: 20px;
+    border-top: 1px solid #00A8FF;
+}
+.wrapper #scoreBoard .won > div {
+    border-left: 1px solid #00A8FF;
+}
+.wrapper #scoreBoard .reset:Hover,
+.wrapper #scoreBoard .mute:Hover {
+    background: #fff;
+    color: #047A9D;
+}
+.wrapper #scoreBoard .mute > div:first-child {
+    display: block;
+}
+.wrapper #scoreBoard .mute > div:last-child {
+    display: none;
+}
+.wrapper #scoreBoard .mute.active > div:first-child {
+    display: none;
+}
+.wrapper #scoreBoard .mute.active > div:last-child {
+    display: block;
+}
+.wrapper #scoreBoard > div {
+    cursor: pointer;
+    background: #047A9D;
+    color: #fff;
+    width: 25%;
+    float: left;
+}
+.wrapper #scoreBoard > div > div {
+    padding: 10px;
+    text-align: center;
+}
+@-webkit-keyframes deadLeft {
+    0% {
+        transform: rotate(-45deg);
+    }
+    30% {
+        transform: rotate(-25deg);
+    }
+    60% {
+        transform: rotate(-45deg);
+    }
+    75% {
+        transform: rotate(-25deg);
+    }
+    100% {
+        transform: rotate(-45deg);
+    }
+}
+@-webkit-keyframes deadRight {
+    0% {
+        transform: rotate(45deg);
+    }
+    30% {
+        transform: rotate(25deg);
+    }
+    60% {
+        transform: rotate(45deg);
+    }
+    75% {
+        transform: rotate(25deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}

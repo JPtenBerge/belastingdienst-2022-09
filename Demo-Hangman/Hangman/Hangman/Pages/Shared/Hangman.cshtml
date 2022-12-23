@@ -1,0 +1,30 @@
+﻿@model int
+
+@{
+    var cssClasses = "";
+    for (int i = 1; i <= Model; i++)
+    {
+        cssClasses += $"hang{i} ";
+    }
+}
+
+<div class="wrapper hangmanGame">
+    <div id="hangMan">
+        <div class="indicator">
+            <span class="maxTry">@Model</span>/<span class="remaining">5</span>
+        </div>
+        <div class="hangman @cssClasses">
+            <div class="shaft"></div>
+            <div class="pole"></div>  
+            <div class="rope"></div>
+            <div class="base"></div>
+            <div class="man">
+                <div class="wrapperMan">
+                    <div class="face"></div>
+                    <div class="hands"></div>
+                    <div class="legs"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

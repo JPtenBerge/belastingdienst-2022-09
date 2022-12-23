@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangman", "Hangman\Hangman.csproj", "{F73132AC-0156-4290-B9FD-C2392F6C3A73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangman.Shared", "Hangman.Shared\Hangman.Shared.csproj", "{66B8B7FA-274A-42E8-9ADA-5EC2224B8821}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F73132AC-0156-4290-B9FD-C2392F6C3A73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F73132AC-0156-4290-B9FD-C2392F6C3A73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F73132AC-0156-4290-B9FD-C2392F6C3A73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F73132AC-0156-4290-B9FD-C2392F6C3A73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66B8B7FA-274A-42E8-9ADA-5EC2224B8821}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66B8B7FA-274A-42E8-9ADA-5EC2224B8821}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66B8B7FA-274A-42E8-9ADA-5EC2224B8821}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66B8B7FA-274A-42E8-9ADA-5EC2224B8821}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
