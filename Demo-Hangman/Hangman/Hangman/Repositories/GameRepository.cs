@@ -13,12 +13,12 @@ public class GameRepository : IGameRepository
     
     public async Task<IEnumerable<GameEntity>> GetAllAsync()
     {
-        return await _context.Games.ToArrayAsync();
+        return await _context.Games.Include(x => x.Player).ToArrayAsync();
     }
     
     public async Task<GameEntity> GetAsync(int gameId)
     {
-        return await _context.Games.SingleAsync(x => x.Id == gameId);
+        return await _context.Games.Include(x => x.Player).SingleAsync(x => x.Id == gameId);
     }
 
     public async Task<GameEntity> StartNewAsync(GameEntity game)

@@ -1,0 +1,27 @@
+﻿@page
+@model Hangman.Pages.GamesModel
+
+<h2>Games</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Speler</th>
+        <th>State</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var game in Model.Games)
+    {
+        <tr>
+            <td>@game.Player.Name</td>
+            <td>@game.State.ToString()</td>
+            <td>
+                <a href="/game/@game.Id">Go to</a>
+            </td>
+        </tr>
+    }
+
+    </tbody>
+</table>
